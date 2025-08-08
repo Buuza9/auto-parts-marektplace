@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Home - Auto Parts Marketplace{%
+endblock %} {% block content %}
+<h1 class="text-3xl font-bold mb-6">Welcome to the Auto Parts Marketplace</h1>
+
+{% if current_user.is_authenticated %}
+<p
+	>Hello, {{ current_user.username }}! You are logged in as
+	<strong>{{ current_user.role }}</strong>.</p
+>
+{% else %}
+<p
+	>Please
+	<a href="{{ url_for('auth.login') }}" class="text-blue-600 hover:underline"
+		>log in</a
+	>
+	or
+	<a href="{{ url_for('auth.signup') }}" class="text-blue-600 hover:underline"
+		>sign up</a
+	>
+	to start shopping or selling.</p
+>
+{% endif %} {% endblock %}
