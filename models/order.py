@@ -1,4 +1,4 @@
-from app import db
+from models import db
 from datetime import datetime
 
 
@@ -11,8 +11,6 @@ class Order(db.Model):
 
     # One-to-many: an order has multiple order items
     items = db.relationship("OrderItem", backref="order", lazy=True)
-
-
 class OrderItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, db.ForeignKey("order.id"), nullable=False)

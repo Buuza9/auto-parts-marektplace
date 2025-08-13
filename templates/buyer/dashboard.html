@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Seller Dashboard{% endblock %} {%
+block content %}
+<h1 class="text-2xl font-bold mb-4">Your Store: {{ store.name }}</h1>
+<p>{{ store.description }}</p>
+
+<a href="{{ url_for('seller.add_product') }}" class="btn btn-primary mt-4"
+	>Add New Product</a
+>
+
+<table class="table-auto w-full mt-6 border">
+	<thead>
+		<tr>
+			<th>Name</th><th>Price</th><th>Quantity</th><th>Barcode</th
+			><th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for product in products %}
+		<tr>
+			<td>{{ product.name }}</td>
+			<td>${{ "%.2f"|format(product.price) }}</td>
+			<td>{{ product.quantity }}</td>
+			<td>{{ product.barcode }}</td>
+			<td>
+				<a
+					href="{{ url_for('seller.edit_product', product_id=product.id) }}"
+					class="text-blue-600 hover:underline"
+					>Edit</a
+				>
+				|
+				<form
+					action="{{ url_for('seller.delete_product', product_id=product.id) }}"
+					method="POST"
+					class="inline-block"
+					onsubmit="return confirm('Delete this product?');"
+				>
+					<button
+						type="submit"
+						class="text-red-600 hover:underline bg-transparent border-none p-0 cursor-pointer"
+						>Delete</button
+					>
+				</form>
+			</td>
+		</tr>
+		{% else %}
+		<tr><td colspan="5" class="text-center py-4">No products yet.</td></tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
