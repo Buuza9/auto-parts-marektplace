@@ -46,19 +46,19 @@ def login():
         return redirect(url_for("home"))
 
     if request.method == "POST":
-        username = request.form.get("username").strip()
+        email = request.form.get("email").strip()
         password = request.form.get("password")
 
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(email=email).first()
         if not user or not user.check_password(password):
-            flash("Invalid username or password", "danger")
+            flash("Invalid email or password", "danger")
             return render_template("login.html")
 
         login_user(user)
         flash(f"Welcome back, {user.username}!", "success")
         return redirect(url_for("home"))
 
-    return render_template("login.html")
+    return render_template("home.html")
 
 
 @auth_bp.route("/logout")

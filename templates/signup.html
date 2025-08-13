@@ -1,51 +1,74 @@
 {% extends "base.html" %} {% block title %}Sign Up - Auto Parts Marketplace{%
-endblock %} {% block content %}
-<h2 class="text-2xl font-semibold mb-4">Create an Account</h2>
+endblock %} <link rel="stylesheet" href="../static/css/login-signup.css" /> {%
+block content %}
 
-<form action="{{ url_for('auth.signup') }}" method="POST" class="max-w-md">
-	<label class="block mb-2" for="username">Username</label>
-	<input
-		class="w-full p-2 mb-4 border rounded"
-		type="text"
-		id="username"
-		name="username"
-		required
-	/>
+<head>
+	<link rel="stylesheet" href="../static/css/login-signup.css" />
+</head>
+<div class="signup-container">
+	<div class="sub-container">
+		<div class="header">
+			<h1 class="title">Secure Customer Login</h1>
+		</div>
+		<div class="content gap-3">
+			<form
+				action="{{ url_for('auth.signup') }}"
+				method="POST"
+				class="login-form"
+			>
+				<label class="form-label" for="username">Username:</label>
+				<input
+					class="mb-3"
+					placeholder="Enter your username"
+					type="text"
+					id="username"
+					name="username"
+					required
+				/>
+				<label class="form-label" for="email">Email:</label>
+				<input
+					class="mb-3"
+					placeholder="Enter your email"
+					type="text"
+					id="email"
+					name="email"
+					required
+				/>
+				<label class="form-label" for="password">Password:</label>
+				<input
+					class="mb-4"
+					placeholder="Enter your password"
+					type="password"
+					id="password"
+					name="password"
+					required
+				/>
+				<label class="form-label" for="role">Role:</label>
+				<select class="form input mb-4" id="role" name="role" required>
+					<option value="default">Choose your role</option>
+					<option value="buyer">Buyer</option>
+					<option value="seller">Seller</option>
+				</select>
+				<button class="login" type="submit">Sign Up</button>
+				<button class="passkeys" type="submit"
+					>Sign with Passkeys</button
+				>
+			</form>
+		</div>
 
-	<label class="block mb-2" for="email">Email</label>
-	<input
-		class="w-full p-2 mb-4 border rounded"
-		type="email"
-		id="email"
-		name="email"
-		required
-	/>
-
-	<label class="block mb-2" for="password">Password</label>
-	<input
-		class="w-full p-2 mb-4 border rounded"
-		type="password"
-		id="password"
-		name="password"
-		required
-	/>
-
-	<label class="block mb-2" for="role">I am a:</label>
-	<select
-		name="role"
-		id="role"
-		class="w-full p-2 mb-4 border rounded"
-		required
-	>
-		<option value="">Select Role</option>
-		<option value="buyer">Buyer</option>
-		<option value="seller">Seller</option>
-	</select>
-
-	<button
-		type="submit"
-		class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-		>Sign Up</button
-	>
-</form>
+		<!-- Social login methods in a row -->
+		<div class="login-methods d-flex flex-column align-items-center mt-4">
+			<div class="sign-up">
+				<p
+					>Already have an account?
+					<a
+						class="text-blue-600 hover:underline"
+						href="{{ url_for('auth.login') }}"
+						>Login here</a
+					>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

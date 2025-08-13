@@ -7,7 +7,6 @@ from models.order import Order, OrderItem
 
 buyer_bp = Blueprint("buyer", __name__, url_prefix="/buyer")
 
-
 @buyer_bp.route("/stores")
 def stores():
     stores = Store.query.all()
@@ -19,7 +18,6 @@ def store_products(store_id):
     store = Store.query.get_or_404(store_id)
     products = Product.query.filter_by(store_id=store.id).all()
     return render_template("buyer/store_products.html", store=store, products=products)
-
 
 @buyer_bp.route("/product/<int:product_id>")
 def product_detail(product_id):

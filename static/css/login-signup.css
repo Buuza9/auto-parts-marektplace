@@ -1,0 +1,138 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+	background-image: url("login-page-bg.png");
+}
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70vh;
+	padding-top: 30px;
+}
+
+.signup-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 85vh;
+	padding-top: 30px;
+}
+
+.sub-container {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	gap: 20px;
+	width: 100%;
+	max-width: 450px;
+	min-height: auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.content {
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+input:hover {
+	border-color: #1b69ff;
+}
+
+input {
+	padding: 10px;
+	border: 1px solid gainsboro;
+	border-radius: 4px;
+	font-family: "Montserrat", sans-serif;
+}
+
+input:focus {
+	border-color: #1b69ff;
+	outline: none;
+}
+
+button {
+	background-color: #1b69ff;
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	height: 50px;
+}
+
+.footer {
+	text-align: center;
+}
+
+.sign-up {
+	text-align: center;
+	margin-top: 10px;
+}
+
+select {
+	padding: 10px;
+	border: 1px solid gainsboro;
+	border-radius: 4px;
+	font-family: "Montserrat", sans-serif;
+}
+
+.passkeys {
+	background-color: white;
+	color: black;
+	border: 1px solid #1b69ff;
+}
+
+.passkeys:hover {
+	background-color: #1b69ff;
+	color: white;
+}
+
+.login {
+	height: 60px;
+}
+
+.login:hover {
+	background-color: #0d42a3;
+	color: white;
+}
+
+img {
+	max-width: fit-content;
+	border-radius: 8px;
+}
+
+title {
+	font-size: 12px;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+@media (max-width: 576px) {
+	.header h1 {
+		font-size: 2rem;
+	}
+
+	button,
+	input {
+		font-size: 14px;
+	}
+
+	.sub-container {
+		padding: 30px;
+	}
+}
